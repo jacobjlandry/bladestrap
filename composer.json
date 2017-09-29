@@ -1,0 +1,12 @@
+{
+    "name": "jacoblandry/bladestrap",
+    "description": "Blade extensions to make working with bootstrap easier",
+    "authors": [
+        {
+            "name": "Jacob Landry",
+            "email": "landry.jacob@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
