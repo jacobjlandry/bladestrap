@@ -1,6 +1,7 @@
 {
     "name": "jacoblandry/bladestrap",
     "description": "Blade extensions to make working with bootstrap easier",
+    "version": "0.0.6",
     "authors": [
         {
             "name": "Jacob Landry",
@@ -8,5 +9,19 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "laravel/framework": "^5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "JacobLandry\\Bladestrap\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JacobLandry\\Bladestrap\\BladestrapServiceProvider"
+            ]
+        }
+    }
 }
