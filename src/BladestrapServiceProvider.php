@@ -17,10 +17,18 @@ class BladestrapServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        /**
+         * Add the generic bootstrap headers to a page
+         */
         Blade::directive('bladestrap', function() {
             return Head::setup();
         });
 
+        /**
+         * Generate a bootstrap alert
+         *
+         * @param $expression array
+         */
         Blade::directive('alert', function ($expression) {
             return "<?php \JacobLandry\Bladestrap\Models\Element::alert({$expression}); ?>";
         });
