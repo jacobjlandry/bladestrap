@@ -9,11 +9,26 @@ class Element extends Model
     /**
      * Handle a bootstrap alert
      *
-     * @param $expression
-     * @return string
+     * @param $arguments
+     * @throws \Exception
      */
-    public static function alert($content, $level = 'primary', $dismissable = false, $animation = '', $classes = '', $ids = '')
+    public static function alert($arguments)
     {
+        // grab content
+        if(!isset($arguments['content'])) {
+            throw new \Exception("Content is required for an alert!");
+        }
+        else {
+            $content = $arguments['content'];
+        }
+
+        // grab reamining arguments or defaults
+        $level = (isset($arguments['level'])) ? $arguments['level'] : 'primary';
+        $dismissable = (isset($arguments['dismissable'])) ? $arguments['dismissable'] : false;
+        $animation = (isset($arguments['animation'])) ? $arguments['animation'] : '';
+        $classes = (isset($arguments['classes'])) ? $arguments['classes'] : '';
+        $ids = (isset($arguments['ids'])) ? $arguments['ids'] : '';
+
         // dismissable or not
         if($dismissable) {
             $dismissable = 'alert-dismissable';
@@ -25,6 +40,6 @@ class Element extends Model
         }
 
         // output html for alert
-        return "<?php echo '<div id=\"$ids\" class=\"alert alert-$level $dismissable $animation $classes\">{$button}{$content}</div>'; ?>";
+        echo "<div id=\"$ids\" class=\"alert alert-$level $dismissable $animation $classes\">{$button}{$content}</div>";
     }
 }
